@@ -15,10 +15,10 @@ def ZK_equality(G,H):
     C2 = m1.value * G + r1.value * H
 
     D1 = r2.value * G
-    D2 = m2.value * G + r2.value * H
+    D2 = m1.value * G + r2.value * H
 
     #Generate a NIZK proving equality of the plaintexts
-    stmt = DLRep(C1, r1*G) & DLRep(C2, r1*H+m1*G) & DLRep(D1, r2*G) & DLRep(D2, r2*H+m2*G)
+    stmt = DLRep(C1, r1*G) & DLRep(C2, r1*H+m1*G) & DLRep(D1, r2*G) & DLRep(D2, r2*H+m1*G)
     
     zk_proof = stmt.prove() 
 
